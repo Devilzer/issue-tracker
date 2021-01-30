@@ -35,7 +35,7 @@ function AddProject() {
                     </span>
                     <input type="text" value={value.title} onChange={(e)=>setValue({...value,title:e.target.value})}/>
                     <span>
-                        Author name <span className="required">*</span>
+                        Author <span className="required">*</span>
                     </span>
                     <input type="text" value={value.author} onChange={(e)=>setValue({...value,author:e.target.value})}/>
                     <span>

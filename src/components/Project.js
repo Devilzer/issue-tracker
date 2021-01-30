@@ -1,10 +1,12 @@
 import React from 'react';
-
+import { useDispatch } from "react-redux";
+import { setCurrentProject } from "../redux/actions";
 function Project({project}) {
-    
+    const dispatch = useDispatch();
+
     return (
         <div className="project-container">
-            <div className="name">
+            <div className="name" onClick={()=>dispatch(setCurrentProject(project))}>
                 {project.title}
             </div>
             <div className="description">

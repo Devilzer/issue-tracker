@@ -36,6 +36,10 @@ body {
         cursor: pointer;
         color: #abb6c5;
       }
+      .selected {
+        color: #f0f6fc;
+        border-bottom: solid 2.5px orange;
+      }
     }
     .home-container {
       display: flex;
@@ -162,6 +166,54 @@ body {
         }
         textarea:focus {
           box-shadow: 0 0 5px 1.5px #58a6ff;
+        }
+        button {
+          margin-top: 7.5px;
+          margin-bottom: 10px;
+          margin-left: 2.5%;
+          height: 32px;
+          width: 20%;
+          border: 1.5px solid #202731;
+          outline: none;
+          font-weight: 600;
+          border-radius: 7.5px;
+          background-color: #238636;
+          color: white;
+        }
+        button:hover {
+          cursor: pointer;
+          background-color: #2db147;
+        }
+      }
+    }
+    .project-details-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #7c8491;
+      h2 {
+        width: 80%;
+        margin-top: 15px;
+        font-weight: 500;
+        text-align: left;
+      }
+      .description {
+        margin-top: 15px;
+        width: 80%;
+      }
+      .info-btn {
+        margin-top: 15px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 80%;
+        border-bottom: 1.5px solid #202731;
+        .info {
+          display: flex;
+          flex-direction: row;
+          .author {
+            margin-right: 15px;
+          }
         }
         button {
           margin-top: 7.5px;

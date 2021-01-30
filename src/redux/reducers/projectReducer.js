@@ -2,6 +2,7 @@ const initialState = {
     projects : [],
     search : "",
     currentProject : {},
+    page:"home"
 };
 
 const reducer = (state = initialState, action)=>{
@@ -15,6 +16,16 @@ const reducer = (state = initialState, action)=>{
             return{
                 ...state,
                 search :action.payload
+            };
+        case "UPDATE_PAGE":
+            return{
+                ...state,
+                page : action.payload
+            };
+        case "SET_CURRENT_PROJECT":
+            return{
+                ...state,
+                currentProject : action.payload
             };
         default:
             return state;

@@ -25,3 +25,10 @@ export const setCurrentProject = (project)=>{
         payload : project
     };
 };
+
+export const addIsssue = (project)=>{
+    return{
+        type : "ADD_ISSUE",
+        payload: project
+    };
+}

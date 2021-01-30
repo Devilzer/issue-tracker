@@ -19,9 +19,10 @@ function AddProject() {
         if(value.title==="" || value.author==="" || value.description===""){
             return;
         }
+        
         dispatch(addProject(value));
 
-        setValue({...value,id:Date.now(),title:"",author:"",description:"",date :today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear()});
+        setValue({...value,issues:[],id:Date.now(),title:"",author:"",description:"",date :today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear()});
     }
     return (
         <>

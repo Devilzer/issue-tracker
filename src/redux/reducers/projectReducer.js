@@ -27,6 +27,14 @@ const reducer = (state = initialState, action)=>{
                 ...state,
                 currentProject : action.payload
             };
+        case "ADD_ISSUE":
+            const addIssueIndex = state.projects.findIndex(obj=>obj.id===action.payload.id);
+            let projectsAfter = state.projects;
+            projectsAfter[addIssueIndex] = action.payload;
+            return{
+                ...state,
+                projects : projectsAfter
+            };
         default:
             return state;
     }

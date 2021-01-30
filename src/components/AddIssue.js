@@ -1,12 +1,14 @@
 import React,{useState} from 'react';
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { addIsssue } from "../redux/actions";
+
 function AddIssue({setShowAddIssue}) {
+    const dispatch = useDispatch();
     const project = useSelector(state => state.project.currentProject);
     const [value, setValue] = useState({
         title : "",
         description:"",
         author:"",
-        labels:[],
         id : Date.now()
     });
     const [label, setlabel] = useState({
@@ -65,6 +67,26 @@ function AddIssue({setShowAddIssue}) {
         enhmcls = "";
     }
 
+    const handleSubmit = () =>{
+        if(value.author==="" || value.title==="" || value.description===""){
+            return;
+        }
+        const issue = {
+            id : value.id,
+            title : value.title,
+            author : value.author,
+            description : value.description,
+            labels : label
+        }
+   
+        project.issues = [...project.issues,issue];
+        console.log(project);
+        dispatch(addIsssue(project));
+        setValue({...value,title:"",description:"",author:"",id:Date.now()});
+        setlabel({...label,bug:false,invalid:false,documentation:false,duplicate:false,wontfix:false,enhancement:false});
+        setShowAddIssue(false);
+    }
+
     return (
         <>
            <div className="input-box">
@@ -92,7 +114,7 @@ function AddIssue({setShowAddIssue}) {
                     <h4 className={enhmcls} onClick={()=>setlabel({...label,enhancement:!label.enhancement})}>enhancement</h4>
                 </div>
             </div>
-            <button className="active" onClick={()=>setShowAddIssue(false)}>
+            <button className="active" onClick={handleSubmit}>
                         Add Issue
             </button> 
         </>

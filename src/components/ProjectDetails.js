@@ -37,26 +37,7 @@ function ProjectDetails() {
                 <div className="search-bar">
                         <input type="text" placeholder="Search issue ...."/>
                 </div>
-                <div className="label-bar">
-                    <h3 >
-                        bug
-                    </h3>
-                    <h3>
-                        invalid
-                    </h3>
-                    <h3 >
-                        wontfix
-                    </h3>
-                    <h3 >
-                        documentation
-                    </h3>
-                    <h3 >
-                        duplicate
-                    </h3>
-                    <h3 >
-                        enhancement
-                    </h3>
-                </div>
+                
                 {project.issues.length===0 && <div className="noissues">No issues for this project!</div>}
             </div>
         </>

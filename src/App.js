@@ -32,10 +32,7 @@ function App() {
             <AddProject/>
           </Route>
         </Switch>
-
-
-        {/* <Home/>
-        <AddProject/> */}
+          
       </div>
     </Router>
     

@@ -35,6 +35,15 @@ const reducer = (state = initialState, action)=>{
                 ...state,
                 projects : projectsAfter
             };
+        case "RESOLVE_ISSUE":
+            const resloveProjectIndex = state.projects.findIndex(obj=>obj.id===action.payload.projectID);
+            let ProjectAftReslove = state.projects;
+            ProjectAftReslove[resloveProjectIndex].issues.splice(action.payload.issueIDX,1);
+            return{
+                ...state,
+                projects : ProjectAftReslove,
+                currentProject:ProjectAftReslove[resloveProjectIndex]
+            };
         default:
             return state;
     }

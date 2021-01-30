@@ -32,3 +32,9 @@ export const addIsssue = (project)=>{
         payload: project
     };
 }
+export const resolveIssue = (object)=>{
+    return{
+        type  : "RESOLVE_ISSUE",
+        payload : object
+    };
+};

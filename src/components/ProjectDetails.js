@@ -1,10 +1,21 @@
 import React,{useState} from 'react';
 import { useSelector } from "react-redux";
 import AddIssue from "./AddIssue";
+import SingleIssue from "./SingleIssue";
 
 function ProjectDetails() {
     const [showAddIssue, setShowAddIssue] = useState(false);
     const project = useSelector(state => state.project.currentProject);
+    const [search, setSearch] = useState("");
+    var filtered = [];
+    const issues = project.issues;
+    if(search!==""){
+        filtered = issues.filter(issue=>{
+            return issue.title.toLowerCase().indexOf(search.toLowerCase())!==-1;
+        });
+    }else{
+        filtered = [...issues];
+    }
     return (
         <>
             <div className="project-details-container">
@@ -35,10 +46,16 @@ function ProjectDetails() {
 
                 
                 <div className="search-bar">
-                        <input type="text" placeholder="Search issue ...."/>
+                        <input type="text" value={search} onChange={(e)=>setSearch(e.target.value)} placeholder="Search issue ...."/>
                 </div>
                 
                 {project.issues.length===0 && <div className="noissues">No issues for this project!</div>}
+                {filtered.map((issue,index)=>(
+                    <SingleIssue
+                        issue={issue}
+                        key={index}
+                    />
+                ))}
             </div>
         </>
        

@@ -69,6 +69,7 @@ function AddIssue({setShowAddIssue}) {
 
     const handleSubmit = () =>{
         if(value.author==="" || value.title==="" || value.description===""){
+            setShowAddIssue(false);
             return;
         }
         const issue = {

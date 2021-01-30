@@ -66,6 +66,10 @@ body {
         width: 100%;
         border-bottom: 1.5px solid #202731;
       }
+      .empty {
+        font-size: 32px;
+        color: #6e7681;
+      }
       .project-container {
         width: 80%;
         display: flex;
@@ -94,6 +98,7 @@ body {
         .info {
           margin: 5px 0;
           padding: 0 15px;
+          padding-bottom: 10px;
           font-size: 14px;
           display: flex;
           flex-direction: row;

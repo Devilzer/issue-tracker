@@ -11,6 +11,11 @@ const reducer = (state = initialState, action)=>{
                 ...state,
                 projects : [...state.projects,action.payload]
             };
+        case "UPDATE_SEARCH":
+            return{
+                ...state,
+                search :action.payload
+            };
         default:
             return state;
     }

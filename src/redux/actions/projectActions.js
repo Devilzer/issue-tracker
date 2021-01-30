@@ -4,3 +4,9 @@ export const addProject = (project)=>{
         payload : project
     };
 };
+export const updateSearch = (value)=>{
+    return{
+        type : "UPDATE_SEARCH",
+        payload : value
+    };
+};
